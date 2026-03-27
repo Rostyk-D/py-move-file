@@ -8,9 +8,7 @@ def move_file(command: str) -> None:
 
     _, source, destination = parts
 
-    if os.path.isdir(destination):
-        destination = os.path.join(destination, os.path.basename(source))
-    elif destination.endswith("/"):
+    if os.path.isdir(destination) or destination.endswith("/"):
         destination = os.path.join(destination, os.path.basename(source))
 
     dir_path = os.path.dirname(destination)
